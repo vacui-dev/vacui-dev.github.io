@@ -1,0 +1,12 @@
+// Signal graph node types
+
+export enum NodeType {
+  TIME = 'TIME',
+  AUDIO_ANALYZE = 'AUDIO_ANALYZE',
+  MATH_MULT = 'MATH_MULT',
+  MATH_ADD = 'MATH_ADD',
+  MATH_SIN = 'MATH_SIN',
+  CONVERT_POLAR = 'CONVERT_POLAR',
+  VISUAL_OUTPUT = 'VISUAL_OUTPUT',
+  VALUE = 'VALUE',
+}

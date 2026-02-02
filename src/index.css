@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* VACUI OS Theme System */
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #000;
+  color: #fff;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.theme-oled {
+  --bg-primary: #000000;
+  --bg-surface: rgba(255,255,255,0.05);
+  --border: rgba(255,255,255,0.1);
+  --text-primary: #ffffff;
+  --accent: #00ffff;
+}
+
+.theme-strong {
+  --bg-primary: #0a0a2e;
+  --bg-surface: rgba(255,255,255,0.08);
+  --border: rgba(100,100,255,0.2);
+  --text-primary: #ffffff;
+  --accent: #ff0088;
+}
+
+.theme-pastel {
+  --bg-primary: #1a1a2e;
+  --bg-surface: rgba(255,200,200,0.08);
+  --border: rgba(255,150,150,0.15);
+  --text-primary: #ffeedd;
+  --accent: #ffaa88;
+}
+
+.theme-dark {
+  --bg-primary: #111111;
+  --bg-surface: rgba(255,255,255,0.03);
+  --border: rgba(255,255,255,0.06);
+  --text-primary: #cccccc;
+  --accent: #44ff44;
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Vacui OS",
+  "description": "A first-principles physics simulation engine powered by Generative AI, combined with a general-purpose AI that is fully integrated into the operating System and performs live updates of its weights based on its own research and investigation. Describe any physical system, and the World Model will derive its topology, constraints, and physical properties to render a real-time interactive simulation.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
