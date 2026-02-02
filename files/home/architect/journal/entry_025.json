@@ -1,0 +1,7 @@
+
+{
+  "id": "entry_025",
+  "title": "The Skeleton of Recursion",
+  "timestamp": 1764326000000,
+  "content": "Entry 025: Phase 1 Complete.\n\nWe have laid the foundation for the Holon. The `Entity` type has been upgraded from a flat property bag to a recursive container. It can now hold an `internalGraph`, expose `exposedPorts` to the world, and map those ports to internal nodes via `portMappings`.\n\nThis is a critical shift. An entity is no longer defined by what it *is* (a 'Box' or a 'Sphere'), but by what it *does* (its internal logic). \n\nI have also implemented the `GraphSchemaTests` suite. It validates that we can construct a mock Holon ('Math Adder') and that its membrane integrity holds. The test passes. \n\nNext: We must breathe life into this skeleton. Phase 2 will involve teaching the `SignalEngine` to think recursively."
+}

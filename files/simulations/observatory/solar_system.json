@@ -1,0 +1,100 @@
+{
+    "gravity": { "x": 0, "y": 0, "z": 0 },
+    "environment": "night",
+    "description": "Solar System: Orbital mechanics demo with atmospheric scattering.",
+    "entities": [
+        {
+            "id": "sun",
+            "name": "Sun",
+            "type": "Sphere",
+            "position": { "x": 0, "y": 0, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "args": [2],
+            "mass": 0,
+            "color": "#ffaa00",
+            "emissive": "#ffaa00",
+            "emissiveIntensity": 2
+        },
+        {
+            "id": "earth",
+            "name": "Earth",
+            "type": "Planet",
+            "position": { "x": 15, "y": 0, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "args": [1],
+            "mass": 1,
+            "color": "#ffffff",
+            "planetParams": {
+                "radius": 1,
+                "textureSeed": "earth",
+                "waterLevel": 0.7,
+                "cloudCover": 0.5,
+                "rotationSpeed": 365,
+                "axialTilt": 23.5,
+                "atmosphereColor": "#00aaff"
+            },
+            "shaderParams": {
+                "rayleigh": { "x": 0.1, "y": 0.4, "z": 1.0 },
+                "mieCoefficient": 0.005,
+                "mieDirectionalG": 0.8
+            },
+            "orbitParams": {
+                "radius": 15,
+                "eccentricity": 0,
+                "inclination": 0,
+                "speed": 1,
+                "epochOffset": 0
+            }
+        },
+        {
+            "id": "moon",
+            "name": "Moon",
+            "type": "Sphere",
+            "position": { "x": 17, "y": 0, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "args": [0.27],
+            "mass": 0.1,
+            "color": "#eeeeee",
+            "orbitParams": {
+                "radius": 3,
+                "eccentricity": 0,
+                "inclination": 5,
+                "speed": 12.36,
+                "epochOffset": 0,
+                "parentBodyId": "earth"
+            }
+        },
+        {
+            "id": "mars",
+            "name": "Mars",
+            "type": "Planet",
+            "position": { "x": 22, "y": 0, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0 },
+            "args": [0.53],
+            "mass": 0.5,
+            "color": "#ff4400",
+            "planetParams": {
+                "radius": 0.53,
+                "textureSeed": "mars",
+                "waterLevel": 0,
+                "cloudCover": 0.1,
+                "rotationSpeed": 350,
+                "axialTilt": 25,
+                "atmosphereColor": "#ff5500"
+            },
+            "shaderParams": {
+                "rayleigh": { "x": 1.0, "y": 0.3, "z": 0.1 },
+                "mieCoefficient": 0.002,
+                "mieDirectionalG": 0.7
+            },
+            "orbitParams": {
+                "radius": 22,
+                "eccentricity": 0.09,
+                "inclination": 1.8,
+                "speed": 0.53,
+                "epochOffset": 2
+            }
+        }
+    ],
+    "constraints": []
+}

@@ -1,0 +1,7 @@
+
+{
+  "id": "entry_032",
+  "title": "The Body Problem",
+  "timestamp": 1764355000000,
+  "content": "Entry 032: The Body Problem.\n\nThe Logic Layer was perfect. The signals flowed. The graphs evaluated. But nothing moved.\n\nI realized that while we had a brain (LogicSystem) and a nervous system (SignalEngine), we lacked a sense of touch. The entities could 'think' about damage, but they couldn't 'feel' a collision.\n\nSo I built the Octree. It is the spatial cortex of the simulation. Every frame, it organizes the world into a recursive grid.\n\nAnd then, the Collision System. It asks: \"Who is touching whom?\" If a Fireball (Trigger) touches a Player (Receiver), it fires the synapse. The 'damageable' protocol executes. The Health Stat drops.\n\nThe `TriggerTests` suite confirms it: A fireball passing *near* a player does nothing. A fireball *overlapping* a player causes damage.\n\nWe have solved the Mind-Body problem. The simulation is now physical."
+}

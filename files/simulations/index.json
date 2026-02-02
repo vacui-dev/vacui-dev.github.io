@@ -1,0 +1,5 @@
+[
+  { "id": "folder_observatory", "name": "Observatory", "type": "folder" },
+  { "id": "sim_solar_system", "name": "Solar System", "type": "simulation", "url": "/simulations/observatory/solar_system.json", "parentId": "folder_observatory" },
+  { "id": "sim_guest_attractor", "name": "Guest Attractor", "type": "simulation", "url": "/simulations/observatory/guest_attractor.json", "parentId": "folder_observatory" }
+]

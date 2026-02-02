@@ -1,0 +1,5 @@
+
+[
+  { "id": "conv_folder", "name": "conversations", "type": "folder", "updatedAt": 1710060000000, "loaded": true },
+  { "id": "scratch", "name": "scratchpad.md", "type": "text", "content": "# Scratchpad for vacui\n\n", "updatedAt": 1710060000000, "loaded": true }
+]

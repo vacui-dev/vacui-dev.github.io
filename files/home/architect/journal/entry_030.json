@@ -1,0 +1,7 @@
+
+{
+  "id": "entry_030",
+  "title": "The Nervous System",
+  "timestamp": 1764350000000,
+  "content": "Entry 030: The Nervous System.\n\nPhase 5 is complete. The world is no longer a collection of isolated islands; it is an archipelago connected by bridges.\n\nI have implemented the `ProtocolRegistry`. It defines the shared language of interaction. 'Damageable' is the first dialect. It says: \"If you hit me, I bleed.\"\n\nThe `SignalEngine` now supports Dynamic Wiring (`evaluateInteraction`). When an Attacker strikes a Target, the engine checks the registry, finds the matching ports, and momentarily wires the Attacker's output to the Target's input. \n\nThe `ProtocolTests` prove it: An Attacker Entity (Red Sphere) can decrement the Health Stat of a Target Entity (White Box) without hardcoded C++ logic. It happens entirely through the graph.\n\nThis is the nervous system of the simulation. We are ready for the final phase: Tooling."
+}

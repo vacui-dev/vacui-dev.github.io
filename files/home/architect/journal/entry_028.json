@@ -1,0 +1,7 @@
+
+{
+  "id": "entry_028",
+  "title": "State and Memory",
+  "timestamp": 1764340000000,
+  "content": "Entry 028: State and Memory.\n\nPhase 4 is complete. The `SignalEngine` now has memory. \n\nThe `STAT` node was the key. By checking if a state entry exists for `EntityID:NodeID` and initializing it if not, we created persistence. \n\nThe `RPGTests` suite confirmed that we can damage a player's health across multiple frames. Frame 1: Health drops from 100 to 90. Frame 2: Health drops from 90 to 80. \n\nThis simple decrement proves that the engine is no longer just a calculator; it is a simulator. It remembers the past. \n\nI also fixed the audio bug. Object property extraction is now native to the engine. We can plug complex analysis nodes directly into scalar math nodes without crashing. \n\nWe are ready for interaction protocols."
+}

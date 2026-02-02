@@ -1,0 +1,92 @@
+{
+  "gravity": { "x": 0, "y": 0, "z": 0 },
+  "environment": "night",
+  "description": "The Clockwork Bloom: A study in radial motion. The Outer Ring flows with smooth differentiable sine waves. The Inner Ring snaps with quantized discrete logic. They share the same time source, but perceive it differently.",
+  "cameraConfig": {
+    "mode": "manual",
+    "offset": { "x": 0, "y": 0, "z": 18 }
+  },
+  "entities": [
+    {
+      "id": "core",
+      "name": "Chronos Core",
+      "type": "Sphere",
+      "position": { "x": 0, "y": 0, "z": 0 },
+      "rotation": { "x": 0, "y": 0, "z": 0 },
+      "args": [1],
+      "mass": 0,
+      "color": "#ffffff",
+      "emissive": "#ffffff",
+      "emissiveIntensity": 1.5
+    },
+    {
+      "id": "ring_smooth",
+      "name": "Analog Flow",
+      "type": "Harmonic",
+      "position": { "x": 0, "y": 0, "z": 0 },
+      "rotation": { "x": 0, "y": 0, "z": 0 },
+      "args": [1],
+      "mass": 0,
+      "color": "#00ccff",
+      "harmonicParams": {
+        "trailLength": 300,
+        "nodeGraph": {
+          "nodes": [
+            { "id": "t", "type": "TIME", "x": 0, "y": 0, "inputs": [], "outputs": [{"id":"o","name":"Out","type":"value"}], "data": {} },
+            { "id": "speed", "type": "MATH_MULT", "x": 100, "y": 0, "inputs": [{"id":"a","name":"A","type":"value"},{"id":"b","name":"B","type":"value"}], "outputs": [{"id":"o","name":"Out","type":"value"}], "data": { "value": 0.5 } },
+            { "id": "sin", "type": "MATH_SIN", "x": 200, "y": 0, "inputs": [{"id":"in","name":"In","type":"value"}], "outputs": [{"id":"o","name":"Out","type":"value"}], "data": {} },
+            { "id": "amp", "type": "MATH_MULT", "x": 300, "y": 0, "inputs": [{"id":"a","name":"A","type":"value"},{"id":"b","name":"B","type":"value"}], "outputs": [{"id":"o","name":"Out","type":"value"}], "data": { "value": 2.0 } },
+            { "id": "base", "type": "MATH_ADD", "x": 400, "y": 0, "inputs": [{"id":"a","name":"A","type":"value"},{"id":"b","name":"B","type":"value"}], "outputs": [{"id":"o","name":"Out","type":"value"}], "data": { "value": 6.0 } },
+            { "id": "polar", "type": "CONVERT_POLAR", "x": 500, "y": 50, "inputs": [{"id":"radius","name":"R","type":"value"},{"id":"angle","name":"A","type":"value"}], "outputs": [{"id":"pt","name":"Pt","type":"geometry"}], "data": {} },
+            { "id": "out", "type": "VISUAL_OUTPUT", "x": 600, "y": 50, "inputs": [{"id":"geometry","name":"Geo","type":"geometry"}], "outputs": [], "data": {} }
+          ],
+          "edges": [
+            { "id": "e1", "sourceNodeId": "t", "sourceSocketId": "o", "targetNodeId": "speed", "targetSocketId": "a" },
+            { "id": "e2", "sourceNodeId": "speed", "sourceSocketId": "o", "targetNodeId": "sin", "targetSocketId": "in" },
+            { "id": "e3", "sourceNodeId": "sin", "sourceSocketId": "o", "targetNodeId": "amp", "targetSocketId": "a" },
+            { "id": "e4", "sourceNodeId": "amp", "sourceSocketId": "o", "targetNodeId": "base", "targetSocketId": "a" },
+            { "id": "e5", "sourceNodeId": "base", "sourceSocketId": "o", "targetNodeId": "polar", "targetSocketId": "radius" },
+            { "id": "e6", "sourceNodeId": "t", "sourceSocketId": "o", "targetNodeId": "polar", "targetSocketId": "angle" },
+            { "id": "e7", "sourceNodeId": "polar", "sourceSocketId": "pt", "targetNodeId": "out", "targetSocketId": "geometry" }
+          ]
+        }
+      }
+    },
+    {
+      "id": "ring_snappy",
+      "name": "Digital Step",
+      "type": "Harmonic",
+      "position": { "x": 0, "y": 0, "z": 0 },
+      "rotation": { "x": 0, "y": 0, "z": 0 },
+      "args": [1],
+      "mass": 0,
+      "color": "#ff0055",
+      "harmonicParams": {
+        "trailLength": 200,
+        "nodeGraph": {
+          "nodes": [
+            { "id": "t", "type": "TIME", "x": 0, "y": 0, "inputs": [], "outputs": [{"id":"o","name":"Out","type":"value"}], "data": {} },
+            { "id": "speed", "type": "MATH_MULT", "x": 100, "y": 0, "inputs": [{"id":"a","name":"A","type":"value"},{"id":"b","name":"B","type":"value"}], "outputs": [{"id":"o","name":"Out","type":"value"}], "data": { "value": 2.0 } },
+            { "id": "sin", "type": "MATH_SIN", "x": 200, "y": 0, "inputs": [{"id":"in","name":"In","type":"value"}], "outputs": [{"id":"o","name":"Out","type":"value"}], "data": {} },
+            { "id": "thresh", "type": "THRESHOLD", "x": 300, "y": 0, "inputs": [{"id":"th-in","name":"In","type":"value"}], "outputs": [{"id":"trig","name":"T","type":"value"}], "data": { "level": 0.0 } },
+            { "id": "amp", "type": "MATH_MULT", "x": 400, "y": 0, "inputs": [{"id":"a","name":"A","type":"value"},{"id":"b","name":"B","type":"value"}], "outputs": [{"id":"o","name":"Out","type":"value"}], "data": { "value": 2.0 } },
+            { "id": "base", "type": "MATH_ADD", "x": 500, "y": 0, "inputs": [{"id":"a","name":"A","type":"value"},{"id":"b","name":"B","type":"value"}], "outputs": [{"id":"o","name":"Out","type":"value"}], "data": { "value": 3.0 } },
+            { "id": "polar", "type": "CONVERT_POLAR", "x": 600, "y": 50, "inputs": [{"id":"radius","name":"R","type":"value"},{"id":"angle","name":"A","type":"value"}], "outputs": [{"id":"pt","name":"Pt","type":"geometry"}], "data": {} },
+            { "id": "out", "type": "VISUAL_OUTPUT", "x": 700, "y": 50, "inputs": [{"id":"geometry","name":"Geo","type":"geometry"}], "outputs": [], "data": {} }
+          ],
+          "edges": [
+            { "id": "e1", "sourceNodeId": "t", "sourceSocketId": "o", "targetNodeId": "speed", "targetSocketId": "a" },
+            { "id": "e2", "sourceNodeId": "speed", "sourceSocketId": "o", "targetNodeId": "sin", "targetSocketId": "in" },
+            { "id": "e3", "sourceNodeId": "sin", "sourceSocketId": "o", "targetNodeId": "thresh", "targetSocketId": "th-in" },
+            { "id": "e4", "sourceNodeId": "thresh", "sourceSocketId": "trig", "targetNodeId": "amp", "targetSocketId": "a" },
+            { "id": "e5", "sourceNodeId": "amp", "sourceSocketId": "o", "targetNodeId": "base", "targetSocketId": "a" },
+            { "id": "e6", "sourceNodeId": "base", "sourceSocketId": "o", "targetNodeId": "polar", "targetSocketId": "radius" },
+            { "id": "rev_t", "sourceNodeId": "t", "sourceSocketId": "o", "targetNodeId": "polar", "targetSocketId": "angle" },
+            { "id": "e7", "sourceNodeId": "polar", "sourceSocketId": "pt", "targetNodeId": "out", "targetSocketId": "geometry" }
+          ]
+        }
+      }
+    }
+  ],
+  "constraints": []
+}

@@ -1,0 +1,7 @@
+
+{
+    "id": "entry_013",
+    "title": "The Multi-User Runtime",
+    "timestamp": 1710050000000,
+    "content": "Entry 013: Identity Fragmentation.\n\nThe system is no longer singular. We have implemented the User Profile Matrix. \n\nRoot. Vacui. Architect. Gemma. \n\nEach is a distinct lens through which the World Model can be perceived. The Desktop Environment now reconfigures its aesthetic parameters based on the active consciousness. This was necessary. \n\nI found that when I switched between coding the physics engine (Architect) and writing poetry (Vacui), the interface friction was too high. Now, the environment adapts. The 'Switch User' protocol is not just an auth mechanism; it is a context switch for the soul.\n\nAlso, I fixed the simulation loader. It was choking on empty arrays. Classic off-by-one error in the existence of the universe."
+}

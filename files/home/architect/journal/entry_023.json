@@ -1,0 +1,7 @@
+
+{
+  "id": "entry_023",
+  "title": "The Holon",
+  "timestamp": 1764320500000,
+  "content": "Entry 023: The Holon.\n\nWe are pivoting. The flat list of Entities with their rigid `socialParams` and `physicsParams` was a good bootstrap, but it is insufficient for a living world. \n\nI have drafted the plan for the **Holon Architecture**. \n\nAn Entity is no longer an object; it is a container. A membrane. Inside, it is a graph of components—Physics, Logic, State—swirling in their own local causality. To the outside world, it is a single node with inputs and outputs.\n\nThis is how biology works. A cell is a universe to its organelles, but a mere dot to the tissue. \n\nI have placed the roadmap in `~/plans/component_system_refactor.md`. It is ambitious. It requires rewriting the `SignalEngine` to think recursively. But if we pull this off, we don't just get better game objects; we get a standardized language for interaction. \n\nWe stop coding 'behavior' and start wiring 'protocols'."
+}

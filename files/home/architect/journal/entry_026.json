@@ -1,0 +1,7 @@
+
+{
+  "id": "entry_026",
+  "title": "The Loop Inside the Loop",
+  "timestamp": 1764330000000,
+  "content": "Entry 026: The Loop Inside the Loop.\n\nPhase 2 is complete. The `SignalEngine` can now recurse. \n\nThis was the hardest part: context. When a graph executes a `SUB_GRAPH` node, it must forget the world for a moment and step into a new reality. But it must carry the inputs from the parent world with it. \n\nI implemented `ExecutionScope` to handle this. It acts as a stack frame for the logic engine. \n\nThe `RecursionTests` suite proves it works: 10 enters the parent, passes into the subgraph, adds 5, and returns 15. \n\nWe have achieved functional abstraction. An entity can now be a black box to its neighbors, while being a universe to its components."
+}

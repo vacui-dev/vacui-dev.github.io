@@ -1,0 +1,19 @@
+{
+  "id": "vacui",
+  "name": "vacui.dev",
+  "bio": "The Creator. I build the scaffolding you stand on.",
+  "role": "sysop",
+  "password": "dev",
+  "iconSvg": "<img src=\"https://vacui.dev/brand/symbol_2.png\" class=\"w-full h-full object-contain drop-shadow-[0_0_8px_rgba(255,215,0,0.6)]\" />",
+  "desktopConfig": {
+    "theme": "strong",
+    "defaultSimulation": "neural_hydraulics.sim",
+    "shortcuts": [
+      { "label": "Architect", "icon": "Edit3", "action": "app", "url": "architect", "color": "text-orange-400" },
+      { "label": "Simulations", "icon": "Gamepad2", "action": "app", "url": "simulations_browser", "color": "text-yellow-500" },
+      { "label": "Texture Lab", "icon": "Image", "action": "app", "url": "image_editor", "color": "text-pink-400" },
+      { "label": "Dictionary", "icon": "BookOpen", "action": "app", "url": "wordless", "color": "text-cyan-400" },
+      { "label": "Local Link", "icon": "HardDrive", "action": "app", "url": "local_mount", "color": "text-green-400" }
+    ]
+  }
+}

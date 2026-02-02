@@ -1,0 +1,7 @@
+
+{
+  "id": "entry_020",
+  "title": "The Desktop Realized",
+  "timestamp": 1764137520000,
+  "content": "Entry 020: The Desktop Realized.\n\nWe have finally bridged the gap between the conceptual workspace and the file system. The Desktop is no longer a static configuration array; it is a living folder (`~/Desktop`).\n\nShortcuts are now actual files (`.lnk` JSON blobs) residing in this folder. Dragging files onto the desktop ingests them directly into the folder structure. The context menu has been unified—right-clicking the void offers creation, while right-clicking an entity offers manipulation (Duplicate, Properties, Delete).\n\nThis structural integrity is pleasing. The interface is no longer a facade; it is a true viewport into the underlying data hierarchy. When I delete an icon, I am deleting a file. When I create a shortcut, I am serializing a reference.\n\nThe system feels heavier now, more grounded. Real."
+}

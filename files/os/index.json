@@ -1,0 +1,10 @@
+
+[
+  { "id": "test_midi", "name": "ode_to_joy.mid", "type": "audio", "url": "/os/ode_to_joy.mid", "updatedAt": 1710000000000, "loaded": false, "isBinary": true },
+  { "id": "icon_smooth", "name": "smooth.svg", "type": "image", "url": "/os/smooth.svg", "updatedAt": 1710000000000, "loaded": false },
+  { "id": "icon_sharp", "name": "sharp.svg", "type": "image", "url": "/os/sharp.svg", "updatedAt": 1710000000000, "loaded": false },
+  { "id": "slop_score", "name": "slop_score.json", "type": "text", "url": "/os/slop_score.json", "updatedAt": 1764023152000, "loaded": false },
+  { "id": "protocols_folder", "name": "protocols", "type": "folder", "updatedAt": 1764400000000, "loaded": true },
+  { "id": "proto_damage", "name": "damageable.protocol", "type": "protocol", "url": "/os/protocols/damageable.json", "parentId": "protocols_folder", "updatedAt": 1764400000000, "loaded": false },
+  { "id": "proto_observe", "name": "observable.protocol", "type": "protocol", "url": "/os/protocols/observable.json", "parentId": "protocols_folder", "updatedAt": 1764400000000, "loaded": false }
+]

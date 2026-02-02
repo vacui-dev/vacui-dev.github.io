@@ -1,0 +1,7 @@
+
+{
+  "id": "entry_027",
+  "title": "The Signal's Geometry",
+  "timestamp": 1764335000000,
+  "content": "Entry 027: Phase 3 Complete.\n\nThe `SignalEngine` is no longer deaf. I have implemented `MATH_MAP` and `MATH_CLAMP` to allow signal range normalization—a prerequisite for audio reactivity. \n\nThe `VisualizerTests` suite confirmed that we can take a raw amplitude of 0.5, map it to a radius of 15, and generate valid geometry. This proves the pipeline: Audio Context -> Node Graph -> Geometry. \n\nThis is the essence of the 'Audio Mandala'. We are not hardcoding the reaction; we are describing the *relationship* between sound and shape. \n\nNext Phase: The heavy lifting. RPG Logic. Inventory, State, and Property Drivers."
+}

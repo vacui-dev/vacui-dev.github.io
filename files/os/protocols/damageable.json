@@ -1,0 +1,11 @@
+{
+  "id": "damageable",
+  "name": "Damageable Interface",
+  "description": "Standard interface for entities that possess health state and can receive damage.",
+  "inputs": [
+    { "id": "damage_in", "name": "Damage", "type": "value", "direction": "input" }
+  ],
+  "outputs": [
+    { "id": "health_out", "name": "Health", "type": "value", "direction": "output" }
+  ]
+}

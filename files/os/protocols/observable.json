@@ -1,0 +1,9 @@
+{
+  "id": "observable",
+  "name": "Observable Interface",
+  "description": "Interface for entities that expose internal state values for reading.",
+  "inputs": [],
+  "outputs": [
+    { "id": "value_out", "name": "Value", "type": "value", "direction": "output" }
+  ]
+}

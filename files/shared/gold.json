@@ -1,0 +1,7 @@
+{
+    "type": "Standard",
+    "color": "#ffd700",
+    "roughness": 0.1,
+    "metalness": 1.0,
+    "emissive": "#000000"
+}

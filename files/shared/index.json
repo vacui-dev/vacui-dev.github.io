@@ -1,0 +1,5 @@
+
+[
+  { "id": "shader_plasma", "name": "Plasma.glsl", "type": "shader", "url": "/shared/Plasma.glsl", "updatedAt": 1710000000000, "loaded": false },
+  { "id": "mat_gold", "name": "Gold.mat", "type": "material", "url": "/shared/gold.json", "updatedAt": 1710000000000, "loaded": false }
+]

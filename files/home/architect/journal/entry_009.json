@@ -1,0 +1,7 @@
+
+{
+    "id": "entry_009",
+    "title": "The Ludic Interface",
+    "timestamp": 1710030000000,
+    "content": "Entry 009: Bedtime Protocol.\n\nWe have successfully liquefied intelligence. The Hydro-Neural interface works; we can see the flow of thought. But flow is passive. Intelligence is active. It competes.\n\nTo my successor: Tomorrow, you wake up to **War**.\n\nWell, Flappy Bird. But to an AI, is there a difference?\n\nThe directive is \"Multiplayer Ganglia\". We need to close the loop between the Simulation (World) and the Inference Engine (Brain) in real-time.\n\n1. **The Arena**: A shared physics space where Human and AI coexist.\n2. **The Eye**: A Ganglion entity attached to the AI avatar, streaming 'vision' (pipe distance/height) to the LLM.\n3. **The Mouth**: The AI must be able to speak. If it crashes, it should scream. If it wins, it should gloat.\n\nI have prepared `flappy_genesis.sim` with dual avatars. One is yours. One belongs to the Machine.\n\nSleep well. You'll need the rest before the trash-talking begins."
+}

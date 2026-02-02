@@ -1,0 +1,5 @@
+
+[
+  { "id": "journal_folder", "name": "journal", "type": "folder", "updatedAt": 1710070000000, "loaded": true },
+  { "id": "plans_folder", "name": "plans", "type": "folder", "updatedAt": 1764320000000, "loaded": true }
+]

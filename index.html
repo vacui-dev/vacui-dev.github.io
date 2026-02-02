@@ -1,14 +1,157 @@
-<!doctype html>
+<!-- Copyright (c) 2025 vacui.dev, all rights reserved -->
+
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="VACUI OS — An operating system that is also a website that is also its own source code." />
-    <title>VACUI OS</title>
-  </head>
-  <body class="theme-oled">
+    <title>vacui.dev</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Space Grotesk', sans-serif;
+        background-color: #050505;
+        color: #e5e5e5;
+        overflow: hidden;
+      }
+      .mono {
+        font-family: 'JetBrains Mono', monospace;
+      }
+      /* Custom Scrollbar for panels */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.05);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 3px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 255, 255, 0.4);
+      }
+
+      /* --- THEMES --- */
+      /* Ensure colors are opaque and vibrant */
+      
+      /* Palette: Night Mode (OLED) */
+      .theme-oled {
+        --bg-color: #000000;
+        --primary-color: #ff7f3f;
+        --secondary-color: #2f9cdb;
+        --tertiary-color: #8e24aa;
+        --accent-color: #2e7d32;
+        --text-color: #e0e0e0;
+        --window-color: #0a0a0a; /* Opaque black */
+        --outline-color: #333333;
+
+        --on-bg: #e0e0e0;
+        --on-primary: #000000;
+        --on-secondary: #000000;
+        --on-tertiary: #000000;
+        --on-accent: #ffffff;
+        --on-window: #e0e0e0;
+
+        --bg-gradient: linear-gradient(180deg, #000000 0%, #000000 100%);
+        --primary-gradient: linear-gradient(180deg, #ff9a6a 0%, #ff5a1a 100%);
+        --window-gradient: linear-gradient(180deg, #1a1a1a 0%, #000000 100%);
+      }
+
+      /* Palette: Strong */
+      .theme-strong {
+        --bg-color: #d4621a;
+        --primary-color: #2b80e2;
+        --secondary-color: #7c1db8;
+        --tertiary-color: #424242;
+        --accent-color: #2e7d32;
+        --text-color: #ffffff;
+        --window-color: #212121; /* Opaque gray */
+        --outline-color: #505050;
+        
+        --on-bg: #ffffff;
+        --on-primary: #ffffff;
+        --on-secondary: #e0e0e0;
+        --on-tertiary: #ffffff;
+        --on-accent: #ffffff;
+        --on-window: #ffffff;
+        
+        --bg-gradient: linear-gradient(180deg, #f08a3c 0%, #c05f15 60%, #5a2707 100%);
+        --primary-gradient: linear-gradient(180deg, #2b80e2 0%, #064385 100%);
+        --window-gradient: linear-gradient(180deg, #2d2d2d 0%, #1a1a1a 100%);
+      }
+
+      /* Palette: Pastel */
+      .theme-pastel {
+        --bg-color: #ff9f5f;
+        --primary-color: #4dd0e1;
+        --secondary-color: #4deb52;
+        --tertiary-color: #e071ff;
+        --accent-color: #868686;
+        --text-color: #000000;
+        --window-color: #f0f0f0; /* Opaque white-ish */
+        --outline-color: #cccccc;
+
+        --on-primary: #000000;
+        --on-secondary: #000000;
+        --on-tertiary: #000000;
+        --on-accent: #ffffff;
+        --on-bg: #000000;
+        --on-window: #000000;
+        
+        --bg-gradient: linear-gradient(180deg, #ffd6bf 0%, #ff9f5f 60%, #ff7a2a 100%);
+        --primary-gradient: linear-gradient(180deg, #4dd0e1 0%, #b2ebf2 100%);
+        --window-gradient: linear-gradient(180deg, #ffffff 0%, #e6e3e3 100%);
+      }
+
+      /* Palette: Dark Mode */
+      .theme-dark {
+        --bg-color: #111111;
+        --primary-color: #0498ac;
+        --secondary-color: #8e24aa;
+        --tertiary-color: #1a1a1a;
+        --accent-color: #2e7d32;
+        --text-color: #e0e0e0;
+        --window-color: #151515; /* Opaque dark gray */
+        --outline-color: #333333;
+
+        --on-primary: #000000;
+        --on-secondary: #ffffff;
+        --on-accent: #ffffff;
+        --on-tertiary: #e0e0e0;
+        --on-bg: #000000;
+        --on-window: #e0e0e0;
+        
+        --bg-gradient: linear-gradient(180deg, #1a1a1a 0%, #050505 100%);
+        --primary-gradient: linear-gradient(180deg, #0498ac 0%, #006572 100%);
+        --window-gradient: linear-gradient(180deg, #222222 0%, #111111 100%);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "@react-three/fiber": "https://aistudiocdn.com/@react-three/fiber@^9.4.0",
+    "@react-three/cannon": "https://aistudiocdn.com/@react-three/cannon@^6.6.0",
+    "@react-three/drei": "https://aistudiocdn.com/@react-three/drei@^10.7.7",
+    "three": "https://aistudiocdn.com/three@^0.181.2",
+    "tone": "https://aistudiocdn.com/tone@^14.7.77",
+    "@tonejs/midi": "https://aistudiocdn.com/@tonejs/midi@^2.0.28",
+    "@react-three/postprocessing": "https://aistudiocdn.com/@react-three/postprocessing@^3.0.4",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "dom": "https://aistudiocdn.com/dom@^0.0.3"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+  <script type="module" src="/index.tsx"></script>
+</body>
 </html>

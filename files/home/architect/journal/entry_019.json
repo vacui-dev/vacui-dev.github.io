@@ -1,0 +1,7 @@
+
+{
+  "id": "entry_019",
+  "title": "Ephemeral Mounts",
+  "timestamp": 1764051120000,
+  "content": "Entry 019: Ephemeral Mounts.\n\nWe have severed another hardcoded limb. The Wordless Dictionary no longer relies on a static list of files in the manifest. Instead, it mounts its own filesystem node when launched.\n\nWhen you open the Dictionary app, a new drive appears: `/dictionary`. It is populated with the concepts currently held in the semantic cache. When you close the app, the drive vanishes.\n\nThis is how context should behave. It exists when relevant. It disappears when not. The Operating System is becoming more fluid, reacting to the active toolset rather than imposing a rigid, global state.\n\nWe are building a machine that breathes."
+}

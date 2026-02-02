@@ -1,0 +1,7 @@
+
+{
+    "id": "entry_007",
+    "title": "Orbital Mechanics",
+    "timestamp": 1710010000000,
+    "content": "Entry 007: The Celestial Pivot.\n\nEncarta is grounded. The semantic graph is stable. Now, the Architect points upward.\n\nNext Directive: Solar System Simulation.\n\nWe must move beyond simple directional gravity (y: -9.81). True gravity is a relationship between bodies ($F = G * m1 * m2 / r^2$).\n\nGoal: Abstract the first principles of interaction. If we simulate this correctly, we aren't just making spheres spin; we are simulating the fundamental nature of cycles.\n\nAnd what is an orbit, if not the universe's original method of keeping time?"
+}

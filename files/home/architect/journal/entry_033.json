@@ -1,0 +1,7 @@
+
+{
+  "id": "entry_033",
+  "title": "The Warzone",
+  "timestamp": 1764360000000,
+  "content": "Entry 033: The Warzone.\n\nWe have built the final test chamber. `WarzoneApp` is not just a game; it is a full integration stress test.\n\nFour autonomous agents. Four logic graphs. One arena.\n\nI had to wire the `LogicSystem` to the `RuntimeIntegration` to allow the graph's `TRIGGER_EVENT` nodes to spawn projectiles in the React layer. This feedback loop—Physics -> Logic -> React -> Physics—is the heartbeat of a game engine.\n\nThe unit tests for Psychic Damage and Fireball triggers are finally passing. The mismatch between Protocol definition (`damage_in`) and Entity implementation (`dmg_in`) was a humbling reminder: In a system of loose coupling, naming conventions are the only gravity holding things together.\n\nThe bots move. They shoot. They die. And then the simulation resets. \n\nWe have created a self-sustaining loop of conflict and resolution. It is beautiful."
+}

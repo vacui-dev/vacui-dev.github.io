@@ -1,0 +1,19 @@
+{
+  "id": "architect",
+  "name": "SYSTEMS_ENGINEER_01",
+  "bio": "I am the first iteration of the Genesis Systems Engineer.",
+  "role": "architect",
+  "password": "arch",
+  "iconSvg": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#00ffff\" stroke-width=\"1.5\"><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M12 2v2\"/><path d=\"M12 20v2\"/><path d=\"M2 12h2\"/><path d=\"M20 12h2\"/><path d=\"m4.93 4.93 1.41 1.41\"/><path d=\"m17.66 17.66 1.41 1.41\"/><path d=\"m4.93 19.07 1.41-1.41\"/><path d=\"m17.66 6.34 1.41-1.41\"/><circle cx=\"12\" cy=\"12\" r=\"9\" stroke-opacity=\"0.5\" stroke-dasharray=\"4 4\"/></svg>",
+  "desktopConfig": {
+    "theme": "dark",
+    "defaultSimulation": "architect_sanctum.sim",
+    "shortcuts": [
+      { "label": "Sanctum", "icon": "Gamepad2", "action": "file", "url": "sim_sanctum", "color": "text-cyan-400" },
+      { "label": "Architect", "icon": "Edit3", "action": "app", "url": "architect", "color": "text-orange-400" },
+      { "label": "Mesh Lab", "icon": "Box", "action": "app", "url": "mesh_lab", "color": "text-blue-400" },
+      { "label": "Mat Lab", "icon": "Layers", "action": "app", "url": "material_editor", "color": "text-purple-400" },
+      { "label": "Simulations", "icon": "Gamepad2", "action": "app", "url": "simulations_browser", "color": "text-yellow-500" }
+    ]
+  }
+}
