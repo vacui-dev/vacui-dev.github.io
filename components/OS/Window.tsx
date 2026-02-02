@@ -27,6 +27,7 @@ const UnitTestApp = React.lazy(() => import('./Apps/UnitTest/App').then(m => ({ 
 const HolonConstructApp = React.lazy(() => import('./Apps/NodeConstruct/App').then(m => ({ default: m.HolonConstructApp })));
 const WarzoneApp = React.lazy(() => import('./Apps/Warzone/App').then(m => ({ default: m.WarzoneApp })));
 const LocalMountApp = React.lazy(() => import('./Apps/LocalMount/App').then(m => ({ default: m.LocalMountApp })));
+const GitHubSettingsApp = React.lazy(() => import('./GitHubSettings').then(m => ({ default: m.GitHubSettings })));
 
 const FileEditor = React.lazy(() => import('./Apps').then(m => ({ default: m.FileEditor })));
 const FileExplorerApp = React.lazy(() => import('./Apps').then(m => ({ default: m.FileExplorerApp })));
@@ -36,7 +37,7 @@ const HelpApp = React.lazy(() => import('./Apps/HelpApp').then(m => ({ default: 
 
 export interface WindowState {
     id: string;
-    appType: 'note' | 'mail' | 'sheet' | 'terminal' | 'memory_palace' | 'library' | 'explorer' | 'bbs' | 'help' | 'ganglion' | 'architect' | 'chat' | 'youtube' | 'midi_player' | 'wordless' | 'calendar' | 'image_editor' | 'material_editor' | 'mesh_lab' | 'simulations_browser' | 'dvd' | 'test_suite' | 'holon_construct' | 'warzone' | 'local_mount';
+    appType: 'note' | 'mail' | 'sheet' | 'terminal' | 'memory_palace' | 'library' | 'explorer' | 'bbs' | 'help' | 'ganglion' | 'architect' | 'chat' | 'youtube' | 'midi_player' | 'wordless' | 'calendar' | 'image_editor' | 'material_editor' | 'mesh_lab' | 'simulations_browser' | 'dvd' | 'test_suite' | 'holon_construct' | 'warzone' | 'local_mount' | 'github_settings';
     fileId?: string;
     folderId?: string;
     title: string;
@@ -190,6 +191,8 @@ export const Window: React.FC<WindowProps> = ({
                         <WarzoneApp />
                     ) : state.appType === 'local_mount' ? (
                         <LocalMountApp />
+                    ) : state.appType === 'github_settings' ? (
+                        <GitHubSettingsApp />
                     ) : (
                         <FileEditor state={state} onLoadSimulation={onLoadSimulation} />
                     )}

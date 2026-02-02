@@ -13,7 +13,7 @@ export interface VirtualFile {
     parentId?: string;
     
     // Remote Filesystem Extensions
-    remoteSource?: 'local_bridge';
+    remoteSource?: 'local_bridge' | 'github';
     remotePath?: string;
 }
 

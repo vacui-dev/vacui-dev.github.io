@@ -2,16 +2,26 @@
 
 import { FILE_DATA } from '../files';
 import { DictionaryBucket } from './WordlessDictionary';
+import { githubFS } from './GitHubFS';
 
 /**
  * MockNetwork
- * Acts as the "Internet" or "File Server" for the simulation.
- * Intercepts URLs and returns data as if it were a real fetch request.
+ * 
+ * The nervous system of the virtual filesystem.
+ * 
+ * ROUTING PRIORITY:
+ *   1. In-memory routes (bundled simulations, procedural dictionary)
+ *   2. GitHubFS → raw.githubusercontent.com (the repo IS the filesystem)
+ *   3. Dead letter — 404
+ *
+ * The website reads its own source code from GitHub.
+ * It is its own filesystem. The ouroboros compiles.
  */
 class MockNetworkService {
     
-    // Simulate network latency (ms)
-    private latency = 150;
+    // Simulate network latency for in-memory routes (ms)
+    // GitHub fetches have their own natural latency
+    private inMemoryLatency = 50;
 
     // Virtual Symlinks / Aliases
     private symlinks: Record<string, string> = {
@@ -24,44 +34,36 @@ class MockNetworkService {
     };
 
     public async fetch(url: string): Promise<Response> {
-        return new Promise((resolve, reject) => {
-            setTimeout(async () => {
-                // 1. Attempt to route internally (Mock Data)
-                const mockResponse = this.route(url);
-                if (mockResponse) {
-                    resolve(mockResponse);
-                    return;
-                }
-
-                // 2. Fallback to Real Network (Static Files)
-                // We assume the "virtual" path (e.g., /bbs/posts.json) maps 
-                // to the "files" directory in the project root.
-                // If path starts with /simulations/, it's a static file in files/simulations/
-                let realPath = `files${url}`;
-                try {
-                    const response = await window.fetch(realPath);
-                    if (!response.ok) {
-                        reject(new Error(`404 Not Found: ${url} (tried ${realPath})`));
-                    } else {
-                        resolve(response);
-                    }
-                } catch (e) {
-                    reject(e);
-                }
-            }, this.latency);
-        });
-    }
-
-    private route(url: string): Response | null {
         // --- SYMLINK RESOLUTION ---
         if (this.symlinks[url]) {
-            console.log(`[MockNetwork] Symlink redirected: ${url} -> ${this.symlinks[url]}`);
+            console.log(`[MockNetwork] Symlink: ${url} → ${this.symlinks[url]}`);
             url = this.symlinks[url];
         }
 
+        // 1. In-memory routes (bundled data, procedural generation)
+        const mockResponse = this.route(url);
+        if (mockResponse) {
+            // Simulate a tiny delay for in-memory routes to keep UI responsive
+            await this.sleep(this.inMemoryLatency);
+            return mockResponse;
+        }
+
+        // 2. GitHub raw content — the repo IS the filesystem
+        try {
+            console.log(`[MockNetwork] GitHub fetch: ${url}`);
+            const isBinary = this.isBinaryPath(url);
+            const response = await githubFS.readFile(url, isBinary);
+            return response;
+        } catch (e: any) {
+            console.error(`[MockNetwork] Fetch failed for ${url}:`, e.message);
+            throw new Error(`404 Not Found: ${url} — ${e.message}`);
+        }
+    }
+
+    private route(url: string): Response | null {
         // --- ROUTING TABLE ---
         
-        // 1. Grandfathered JSON/Text Data (Simulations as Objects)
+        // 1. Grandfathered JSON/Text Data (Simulations bundled at compile time)
         if (url === '/sims/chronos_skeleton.sim') return this.jsonResponse(FILE_DATA.simulations.chronos_skeleton);
         if (url === '/sims/alchemist_lab.sim') return this.jsonResponse(FILE_DATA.simulations.alchemist_lab);
         if (url === '/sims/neural_hydraulics.sim') return this.jsonResponse(FILE_DATA.simulations.neural_hydraulics);
@@ -69,7 +71,7 @@ class MockNetworkService {
         if (url === '/sims/mech_battle.sim') return this.jsonResponse(FILE_DATA.simulations.mech_battle);
         if (url === '/sims/architect_sanctum.sim') return this.jsonResponse(FILE_DATA.simulations.architect_sanctum);
 
-        // 2. Dictionary Shards (Procedural Generation for Wordless Dictionary Demo)
+        // 2. Dictionary Shards (Procedural Generation)
         if (url.startsWith('/dictionary/c_')) {
             const bucketIdStr = url.replace('/dictionary/c_', '').replace('.json', '');
             const bucketId = parseInt(bucketIdStr, 10);
@@ -85,6 +87,15 @@ class MockNetworkService {
     private jsonResponse(data: any): Response {
         const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
         return new Response(blob);
+    }
+
+    private isBinaryPath(url: string): boolean {
+        const ext = url.split('.').pop()?.toLowerCase() || '';
+        return ['mid', 'midi', 'png', 'jpg', 'jpeg', 'gif', 'wav', 'mp3', 'ogg', 'woff', 'woff2'].includes(ext);
+    }
+
+    private sleep(ms: number): Promise<void> {
+        return new Promise(resolve => setTimeout(resolve, ms));
     }
 
     private generateMockBucket(bucketId: number): DictionaryBucket {

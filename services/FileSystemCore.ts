@@ -5,6 +5,7 @@ import { DesktopShortcut } from "../types/desktop";
 import { mockNetwork } from "./MockNetwork";
 import { runtimeIntegration } from "./RuntimeIntegration";
 import { localFileSystemBridge } from "./LocalFileSystemBridge";
+import { githubFS } from "./GitHubFS";
 
 const README_MD = `
 # GENESIS WORLD MODEL OS
@@ -146,13 +147,40 @@ export class FileSystemCore {
             file.updatedAt = Date.now();
             this.notify();
 
+            const virtualPath = `${folder.name}/${file.name}`;
+
             runtimeIntegration.notifyFileSystemChange({
                 type: 'update',
-                path: `${folder.name}/${file.name}`,
+                path: virtualPath,
                 timestamp: Date.now(),
                 entropyDelta: 0.1
             });
+
+            // Queue the write for GitHub PR if token is configured
+            if (githubFS.isWriteEnabled()) {
+                const serialized = typeof content === 'string' ? content : JSON.stringify(content, null, 2);
+                githubFS.queueWrite(
+                    `/${virtualPath}`,
+                    serialized,
+                    `Update ${file.name}`
+                );
+            }
         }
+    }
+
+    // --- GITHUB WRITE OPERATIONS ---
+
+    public async submitChangesAsPR(title?: string): Promise<{ success: boolean; prUrl?: string; error?: string }> {
+        const result = await githubFS.flushWriteQueue(title);
+        return result;
+    }
+
+    public getPendingWriteCount(): number {
+        return githubFS.getWriteQueue().length;
+    }
+
+    public isGitHubWriteEnabled(): boolean {
+        return githubFS.isWriteEnabled();
     }
 
     public removeFile(folderId: string, fileId: string): boolean {

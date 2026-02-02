@@ -4,7 +4,7 @@ import React from 'react';
 import { 
     Terminal, Activity, Folder, MessageSquare, Zap, Edit3, 
     Gamepad2, Brain, BookOpen, Youtube, Music, Image, Layers, Box, 
-    Calendar, Disc, HelpCircle, Sword, MessageCircle, Mail, FileText, Table, Globe, Hexagon, HardDrive
+    Calendar, Disc, HelpCircle, Sword, MessageCircle, Mail, FileText, Table, Globe, Hexagon, HardDrive, Github
 } from 'lucide-react';
 
 export interface AppDefinition {
@@ -20,6 +20,7 @@ export const SYSTEM_APPS: AppDefinition[] = [
     { id: 'test_suite', label: 'System Health', title: 'System Health', icon: <Activity className="w-full h-full" /> },
     { id: 'explorer', label: 'File Explorer', title: 'File Explorer', icon: <Folder className="w-full h-full" /> },
     { id: 'local_mount', label: 'Local Link', title: 'Filesystem Bridge', icon: <HardDrive className="w-full h-full" /> },
+    { id: 'github_settings', label: 'GitHub', title: 'GitHub Filesystem', icon: <Github className="w-full h-full" /> },
     { id: 'holon_construct', label: 'Holon Construct', title: 'Holon Construct', icon: <Hexagon className="w-full h-full" /> },
     { id: 'warzone', label: 'Warzone', title: 'Warzone Arena', icon: <Sword className="w-full h-full" /> },
     { id: 'bbs', label: 'Genesis BBS', title: 'Genesis BBS', icon: <MessageSquare className="w-full h-full" /> },
